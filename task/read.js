@@ -1,3 +1,5 @@
+//var url = 'http://top.baidu.com/category?c=10&fr=topindex';
+
 var request = require('request');//拉取网页内容
 var cheerio = require('cheerio');//实现jquery功能
 var iconv = require('iconv-lite');//把GBK转成UTF8
@@ -26,12 +28,19 @@ exports.category = function(url,callback){
 			var params = regParams(item.url);
 			item.id = params.b;
 			items.push(item);
+			console.log(item);//{ name: '全部', url: './buzz?b=7&c=10', id: '7' }
+			console.log(params);//{ b: '7', c: '10' }
 		});
 		callback(null,items);
 	});
 }
 
-
+/*
+    var str = './buzz?b=353&c=10';
+	 var reg = /(([^?&=]*)=([^?&=]*))/g;
+	 console.log(str.match(reg))
+	 结果： ["b=353", "c=10"]
+ */
 function regParams(url) {
 	var obj = {};
 	var reg = /([^?&=]*)=([^?&=]*)/g;
