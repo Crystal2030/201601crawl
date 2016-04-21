@@ -28,8 +28,8 @@ exports.category = function(url,callback){
 			var params = regParams(item.url);
 			item.id = params.b;
 			items.push(item);
-			console.log(item);//{ name: '全部', url: './buzz?b=7&c=10', id: '7' }
-			console.log(params);//{ b: '7', c: '10' }
+			//console.log(item);//{ name: '全部', url: './buzz?b=7&c=10', id: '7' }
+			//console.log(params);//{ b: '7', c: '10' }
 		});
 		callback(null,items);
 	});

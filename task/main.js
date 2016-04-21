@@ -10,6 +10,7 @@ async.series([
 	function(done){
 		read.category(uri,function(err,list){
 			categories = list;
+			console.log('--------categories--------',categories);
 			done(err);
 		})
 	},
@@ -22,6 +23,7 @@ async.series([
 			read.article('http://top.baidu.com/buzz?b='+category.id+'&c=10&fr=topcategory_c10',category.id,function(err,list){
 				//把每个分类下面的文章列表全部加在一起
 				articles = articles.concat(list);
+				console.log('--------articles--------',articles);
 				next();
 			})
 		},done)

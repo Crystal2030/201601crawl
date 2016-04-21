@@ -1,3 +1,9 @@
+/**
+ * 1. 有分页
+ * 2. 可以查询
+ * 3. 点击分类可以切换文章
+ * 4. 点击文章可以跳到百度贴吧对应的贴吧里
+ */
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
@@ -58,3 +64,19 @@ app.use(function(err, req, res, next) {
 
 
 module.exports = app;
+
+var spawn = require('child_process').spawn;
+var cronJob = require('cron').CronJob;
+//30秒跑一次子进程
+var job = new cronJob('*/30 * * * * *', function(){
+  //创建一个子进程
+  var child_process = spawn(process.execPath, ['../task/main.js']);
+  //把子进程的标准输出的数据传递到祝进程 的标准输出
+  child_process.stdout.pipe(process.stdout);
+  //把子进程的错误输出的数据传递到祝进程的错误输出
+  child_process.stderr.pipe(process.stderr);
+});
+
+job.start();
+
+

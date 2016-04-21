@@ -1,0 +1,21 @@
+{
+  "name": "crawl",
+  "description": "",
+  "main": "",
+  "authors": [
+    "Crystal2030 <867389458@qq.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/Crystal2030/201601crawl",
+  "moduleType": [],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.6"
+  }
+}

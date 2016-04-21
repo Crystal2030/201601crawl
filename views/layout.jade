@@ -1,7 +1,12 @@
 doctype html
 html
   head
-    title= title
-    link(rel='stylesheet', href='/stylesheets/style.css')
+    title= 小说大全
+    link(rel='stylesheet', href='/lib/bootstrap/dist/css/bootstrap.css')
   body
+    nav.navbar.navbar-default
+      .container-fluid
+        .navbar-header
+          a.navbar-brand(href='#') 最热小说
     block content
+

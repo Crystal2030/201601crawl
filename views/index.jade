@@ -1,5 +1,13 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  .container
+    .row
+      .col-md-8
+        ul.list-group
+          each article in articles
+            li.list-group-item #{article.name}
+      .col-md-4
+        ul.list-group
+        each category in categories
+          li.list-group-item=category.name
